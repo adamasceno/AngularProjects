@@ -1,0 +1,41 @@
+<!doctype html>
+<html ng-app="tst">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/bootstrap.min.css" />
+</head>
+
+<body>
+    <script type="text/javascript" src="Assets/JS/angular.min.js"></script>
+    <!-- angularjs v1.5.0 -->
+    <script type="text/javascript" src="Assets/JS/appAngular.js"></script>
+    <div ng-controller="CtrlApp as ctrl1">
+        <!-- <h1>{{ctrl1.pberson[1].name}}</h1> -->
+        <section ng-init="tb = 1">
+            <ul class="nav nav-pills" ng-repeat="p in ctrl1.persons | orderBy:'name'">
+                <!-- <li ng-repeat="p in ctrl1.person | orderBy:'name'"> -->
+                        <h1>{{p.name}}</h1>
+                    <!-- <img ng-src="{{p.img}}"/> -->
+                </li>
+            </ul>
+            <!-- {{tb}} -->
+        </section>
+        <div class="panel" ng-show="tb === 1">
+            <p>ssss</p>
+        </div>
+        <div class="panel" ng-show="tb === 2">
+            <p>Ocupation: {{ctrl1.persons[1].ocupation}}</p>
+        </div>
+        <div id="inputs">
+          <!-- <input type="text" class="form-control" ng-model="ctrl1.name1"/>
+          <input type="text" class="form-control" ng-model="ctrl1.age1"/>
+          <button ng-click="ctrl1.AddPerson()">Add person</button> -->
+          <input type="text" class="form-control" ng-model="contato.name"/>
+          <input type="text" class="form-control" ng-model="contato.age"/>
+          <button ng-click="ctrl1.AddPerson(contato)" ng-disabled="!contato.name">Add person</button>
+          {{contato}}
+        </div>
+    </div>
+</body>
+
+</html>
